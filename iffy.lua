@@ -1,7 +1,7 @@
 --[[
 	Iffy  : The SpriteSheet and Tileset helper library (handles Tilemaps as well)
 	Author: Neer
-	(https://github.com/YoungNeer/lovelib/blob/tree/master/iffy)
+	(https://github.com/YoungNeer/lovelib/iffy)
 ]]
 
 local iffy={
