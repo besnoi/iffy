@@ -1,7 +1,7 @@
 --[[
 	Iffy  : The SpriteSheet and Tileset helper library (handles Tilemaps as well)
 	Author: Neer
-	(https://github.com/YoungNeer/lovelib/iffy)
+	(https://github.com/YoungNeer/iffy)
 ]]
 
 local iffy={
@@ -135,7 +135,7 @@ function iffy.newAtlas(name,url,metafile,sw,sh)
 		name=removeExtension(url)
 	end
 	if url then
-		if type(url)=='table' then
+		if type(url)~='string' then
 			assert(metafile,
 			   "Iffy Error! You must pass the URL of the metafile for"..name
 			)
@@ -170,7 +170,7 @@ function iffy.newAtlas(name,url,metafile,sw,sh)
 				_, sname = string.match(line, "name=([\"'])(.-)%1")
 
 				assert(not t[sname],
-					"Iffy Error!! Duplicate Sprite Names for "..url
+					"Iffy Error!! Duplicate Sprite Names for "..name
 				)
 				_, x = string.match(line, "x=([\"'])(.-)%1")
 				_, y = string.match(line, "y=([\"'])(.-)%1")

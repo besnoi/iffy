@@ -1,3 +1,5 @@
+package.path = package.path .. ";../../?.lua"
+
 iffy=require 'iffy'
 
 iffy.newImage("dice.png")
@@ -12,5 +14,5 @@ iffy.exportXML("dice")
 --if you want to export to XML then use exportXML
 
 function love.draw()
-	iffy.drawSprite('dice3')
+	iffy.drawSprite('dice3',400-32,300-32)
 end
