@@ -311,7 +311,7 @@ The last parameters `mx,my` are the margin (not the spacing, as it was the case 
 
 > Spoiler: If you simply want to use Kenney's assets then skip this section. The only relevant section for you is [A quick walkthrough](#A-quick-walkthrough)
 
-For XML Iffy expects the metadata to be in the given format (note that there mustn't be any other tag (even declaration tag) though comments and blanklines are supported)
+For XML Iffy expects the metadata to be in the given format (note that there mustn't be any other tag (even prologue tag) though comments and blanklines are supported)
 
 ```xml
 <!-->Ofcourse the tagnames could be different</!-->
