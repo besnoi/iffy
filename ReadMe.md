@@ -311,7 +311,7 @@ The last parameters `mx,my` are the margin (not the spacing, as it was the case 
 
 > Spoiler: If you simply want to use Kenney's assets then skip this section. The only relevant section for you is [A quick walkthrough](#A-quick-walkthrough)
 
-So what is the format that Iffy expects your metafile to be in? Iffy supports CSV and XML files but even in that format data could be stored in millions of ways. So what is the format that Iffy supports? So I researched on my own and found that the most common way of storing sprite-data in these two formats are as follows
+For XML Iffy expects the metadata to be in the given format (note that there mustn't be any other tag (even declaration tag) though comments and blanklines are supported)
 
 ```xml
 <!-->Ofcourse the tagnames could be different</!-->
@@ -320,28 +320,22 @@ So what is the format that Iffy expects your metafile to be in? Iffy supports CS
 </TextureAtlas>
 ```
 
-This is the format that Kenny stores his atlases in. He uses some software to merge his images into a spritesheet. Please note that while it's not mandatory for the tagnames to be exact but it's mandatory that the tree-like structure is maintained and also currently Iffy doesn't support comments in XML (for the reason that they are *very rarely used*) so please remove the comments and even any blank newlines. I'll make it easy for you here are the rules for the XML format (for it to be suitable to be used with Iffy):-
+This is the format that Kenny stores his atlases in. He uses some software to merge his images into a spritesheet. Please note that while it's not mandatory for the tagnames to be exact but it's mandatory that the tree-like structure is maintained! Also there are some trivial rules that your meta-file must follow:-
 
-- The first line must be a dummy line (shouldn't have any information about any sprite)
-- No dummy lines after the first line
-- Except the first and the last line every other line must be a crucial line (shouldn't have the required information about a sprite)
 - The x,y,width and height must be attributes (in the same line) and not tags
 - The attributes name must be the same
-- The parentheses around the attribute values are *must*
-
-That may seem like a lot of work but most software exports XML in that format - no blank lines and comments are rare. The one that should concern you is - *the software Kenney uses exports in this format!!*
+- The quotes around the attribute values are *must*
 
 And the second format- one for CSV files is :-
 
 ```csv
 "sprite_name", x, y , width, height
 ```
+Hopefully Iffy is not so strict with the CSV format. You can have blank lines, no quotes surrounding the *first* attribute, as many surrounding white spaces as you want - Iffy will trim them for you. You can even have comments (one beginning with '#'). And as you saw in [the quick walkthrough](#a-quick-walkthrough) you can even have some extra data which Iffy will simply ignore. But there are some trivial rules which your meta-file must comply with, these general rules are :-
 
-Hopefully Iffy is not so strict with the CSV format. You can have blank lines, no parentheses surrounding the *first* attribute, as many surrounding white spaces as you want. Iffy will trim them for you. You can even have comments (one beginning with '#'). And as you saw in [the quick walkthrough](#a-quick-walkthrough) you can even have some extra data which Iffy will simply ignore. But there are some rules which you must comply with, these general rules are :-
-
-- The sprite name may or may not be in parentheses (Iffy assumes that the sprite name won't have any parentheses so any parentheses will simply be ignored)
-- Other attributes must not be in parentheses no matter what
-- All the data must be in one line (btw that is the rule of CSV file format)
+- The sprite name may or may not be in quotes (Iffy assumes that the sprite name won't have any quotes so any quotes will simply be ignored)
+- Other attributes must not be in quotes no matter what
+- All the data must be in one line
 
 # Aliases used by Iffy
 
