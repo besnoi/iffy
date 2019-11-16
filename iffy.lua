@@ -43,8 +43,8 @@ function removePath(filename)
 end
 
 --remove extension from a file as well as remove the path
-local function removeExtension(filename)
-	filename=removePath(filename)
+local function removeExtension(filename,dontremovepath)
+	if not dontremovepath then filename=removePath(filename) end
 	return filename:sub(1,lastIndexOf(filename,".")-1)
 end
 
@@ -63,7 +63,7 @@ local metafileFormats={
 -- takes asset url and returns corresponding meta file url (if it exists)
 local function getmetafile(url)
 	for i=1,#metafileFormats do
-		local f=removeExtension(url)..metafileFormats[i]
+		local f=removeExtension(url,true)..metafileFormats[i]
 		if fileExists(f) then
 			return f
 		end
@@ -165,12 +165,11 @@ function iffy.newAtlas(name,url,metafile,sw,sh)
 	if getExtension(metafile)=="xml" then
 		--READ XML FILE ('i' means the line number)
 		for line in infile:lines() do
-			if i>1 and line~="</TextureAtlas>" then
-				
+			if i>1 and line:match('%a') and not line:match('<!') and line~="</TextureAtlas>" then
 				_, sname = string.match(line, "name=([\"'])(.-)%1")
 
 				assert(not t[sname],
-					"Iffy Error!! Duplicate Sprite Names for "..name
+					"Iffy Error!! Duplicate Sprite Names ("..sname..") for "..name
 				)
 				_, x = string.match(line, "x=([\"'])(.-)%1")
 				_, y = string.match(line, "y=([\"'])(.-)%1")
@@ -463,4 +462,3 @@ iffy.newTileSet     = iffy.newTileset
 
 
 return iffy
-
