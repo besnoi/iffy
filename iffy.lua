@@ -234,10 +234,10 @@ function iffy.newTileset(name,url,tw,th,mx,my,sw,sh)
 		name=removeExtension(url)
 		iffy.images[name]=love.graphics.newImage(url)
 	else
-		if type(url)=='table' then
-			iffy.images[name]=url
-		else
+		if type(url)=='string' then
 			iffy.images[name]=love.graphics.newImage(url)
+		else
+			iffy.images[name]=url
 		end
 	end
 	
