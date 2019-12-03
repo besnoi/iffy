@@ -192,6 +192,8 @@ It'd return a Quad.
 
 ## Exporting your SpriteData
 
+> Please don't export the sprite-data if your game is packaged as love! This may cause issues.
+
 Now that you have created the sprites manually you may want to export them to some generic format. Maybe to want to use them later with [`newAtlas`](#newAtlas) or whatever may be the reason. Iffy supports two formats - XML and CSV both of which are wildly used in the sprite world. 
 
 > Note here that all of this is relevant only for spritesheets. I can't imagine the situation where you would want to export tileset data (that'd be kinda lame though). Also note that if you try to export a file which is already present then Iffy will warn you that that file already exists (that doesn't mean it wont' overwrite it - it will just let you know)
