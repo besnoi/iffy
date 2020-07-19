@@ -137,7 +137,7 @@ Now there are 4 overloads to newAtlas. Let's look at the most descriptive one fi
 
 2. So anyways the second parameter is either the *url* of the image (overload #1) (in case you haven't loaded the image on your own) or the *reference* to the image (overload #2).
 
-3. The third parameter is the url of the metafile - the XML or the CSV file which has the data concerning the sprite's name, dimensions and position in the atlas. To understand the format in which data should go I suggest you look at the reference images- <a href="Images/wtxml.png">for xml</a> and <a href="Images/dicecsv.png">for csv</a>. We anyways'll talk about the format in [this](#metafile-format) section.
+3. The third parameter is the url of the metafile - the XML or the CSV file which has the data concerning the sprite's name, dimensions and position in the atlas. To understand the format in which data should go I suggest you look at the reference images- <a href="Images/wtxml.png">for xml</a> and <a href="Images/dicecsv.png">for csv</a>. We anyways'll talk about the format in [this](#metafile-format-used-by-iffy) section.
 
 4. And the fourth and fifth parameter - like I said in the beginning - are the image dimensions which are by default the image dimensions.
 
